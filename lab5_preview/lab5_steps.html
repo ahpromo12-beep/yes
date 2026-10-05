@@ -233,8 +233,10 @@ const TABS=[
 ]},
 
 {id:"b",label:"Lab 5b",intro:{h:"Lab 5b – Problem 1",dl:[["File","Lab 5b.dwg"],["Units","Inches (Imperial)"],["Turn in","SE Isometric PDF + Front view PDF + the .dwg"]],pics:[["b","Finished Lab 5b, SE Isometric"],["bf","Front view: ellipse at the lower left"]],
-  fix:"<b>Use these numbers, not the reference file's.</b> The right edge is <b>0.948\"</b> tall (from the 30° slope; the 1.50 dimension locates the hole center). The ellipse is <b>1.40 × 0.30</b> and cut all the way through. The reference had about 1.00\" and a 1.38 × 0.40 ellipse that was not cut."},steps:[
+  fix:"<b>Use these numbers, not the reference file's.</b> The right edge is <b>0.948\"</b> tall (from the 30° slope; the 1.50 dimension locates the hole center). The ellipse is <b>1.40 × 0.30</b> and cut all the way through. <b>The ellipse never shows in SE Isometric</b>: the front overhang covers it. That is why the assignment asks for a second PDF in Front view."},steps:[
  {t:"Put the drawing plane on the front face",r:[
+  ["T","UCS","Asks for the origin or an option"],
+  ["T","W","Starts from World, so the next turn is correct"],
   ["T","UCS","Asks for the origin or an option"],
   ["T","X","Asks: <i>Specify rotation angle about X axis</i>"],
   ["T","90","The UCS icon turns: Y now points up."]]},
@@ -252,12 +254,14 @@ const TABS=[
   ["T","L","Picks the outline"],
   ["K","Enter","Asks: <i>Specify height of extrusion</i>"],
   ["T","-2","The block appears. The minus sign sends it back, away from you."],
-  ["T","ZOOM","Asks for an option"],["T","E","Fills the screen."]]},
+  ["T","ZOOM","Asks for an option"],["T","E","Fills the screen."]],
+  check:"The face with the slanted top is on the <b>lower-left</b> side, and the block runs back toward the upper right. Step 6 confirms the direction with numbers."},
  {t:"Round hole, Ø1.000",g:"Stay in the same UCS.",r:[
   ["T","CYLINDER","Asks for the center point"],
   ["T","1.32,1.5","Asks for the radius"],
   ["T","0.5","Asks for the height"],
-  ["T","-2","The cylinder runs front to back."],...sub()]},
+  ["T","-2","The cylinder runs front to back."],...sub()],
+  check:"Optional: <code>MASSPROP</code>, <code>ALL</code>, Enter. Volume ≈ <b>15.91</b>."},
  {t:"Elliptical hole, 1.40 × 0.30",g:"Still the same UCS. AutoCAD uses half-lengths, so you type 0.7 and 0.15.",r:[
   ["T","ELLIPSE","Asks: <i>Specify axis endpoint of ellipse or [Arc/Center]</i>"],
   ["T","C","Asks: <i>Specify center of ellipse</i>"],
@@ -265,25 +269,32 @@ const TABS=[
   ["T","@0.7,0","Asks: <i>Specify distance to other axis</i>"],
   ["T","0.15","The ellipse appears at the lower left."],
   ["T","EXTRUDE","Asks for objects"],["T","L","Picks the ellipse"],["K","Enter","Asks for the height"],
-  ["T","-2","An elliptical rod runs front to back."],...sub()]},
- {t:"Go back to World",r:[["T","UCS","Asks for the origin"],["T","W","The UCS is World again."]]},
+  ["T","-2","An elliptical rod runs front to back."],...sub()],
+  check:"Optional: Volume ≈ <b>15.25</b>."},
+ {t:"Back to World, and check the direction",r:[
+  ["T","UCS","Asks for the origin"],["T","W","The UCS is World again."],
+  ["T","MASSPROP","Asks: <i>Select objects</i>"],["T","ALL","Selects the part"],["K","Enter","Shows the numbers"]],
+  check:"<b>Bounding box Y</b> reads <b>0.0000 -- 2.0000</b> and Volume ≈ <b>15.25</b>. Press <kbd>Enter</kbd> to close the list.",
+  warn:"If Y reads <b>-2.0000 -- 0.0000</b>, the extrude went the wrong way and the boxes below would miss. Type <code>MOVE</code>, <code>ALL</code>, Enter, <code>0,0,0</code>, <code>0,2,0</code>. Then check again."},
  {t:"Cut the back slot",r:[
-  ["T","BOX","Asks for the first corner"],["T","2.5,1.38,0","Asks for the other corner"],["T","@1.38,0.62,2.38","A tall box sits at the back."],...sub()]},
+  ["T","BOX","Asks for the first corner"],["T","2.5,1.38,0","Asks for the other corner"],["T","@1.38,0.62,2.38","A tall box sits at the back."],...sub()],
+  check:"Volume ≈ <b>13.80</b>."},
  {t:"Cut the front-right corner",r:[
-  ["T","BOX","Asks for the first corner"],["T","3.12,0,0","Asks for the other corner"],["T","@1.38,0.62,2.38","A tall box sits at the front right."],...sub()]},
+  ["T","BOX","Asks for the first corner"],["T","3.12,0,0","Asks for the other corner"],["T","@1.38,0.62,2.38","A tall box sits at the front right."],...sub()],
+  check:"Volume ≈ <b>12.64</b>."},
  {t:"Cut the lower-front recess",r:[
-  ["T","BOX","Asks for the first corner"],["T","0,0,0","Asks for the other corner"],["T","@3.12,0.62,0.62","A low box sits along the bottom front."],...sub()]},
- {t:"Check the finished part",r:[
+  ["T","BOX","Asks for the first corner"],["T","0,0,0","Asks for the other corner"],["T","@3.12,0.62,0.62","A low box sits along the bottom front."],...sub()],
+  check:"Volume ≈ <b>11.65</b>. This is the finished part."},
+ {t:"Check the front view",r:[
   ["T","VSCURRENT","Asks for a style"],["T","R","Realistic"],
-  ["T","MASSPROP","Asks for objects"],["Do","Click the part","Highlights"],["K","Enter","Shows the numbers"],["K","Enter","Closes the list"],
-  ["T","-VIEW","Asks for an option"],["T","FRONT","Straight-on front view"],
-  ["T","-VIEW","Asks for an option"],["T","SEISO","Back to SE Isometric"],
-  ["T","UCS","Asks for the origin"],["T","W","UCS back to World"]],
-  check:"<b>Volume</b> about <b>11.65</b>. The front view matches the second picture: both holes white inside, a line at 0.62\", a vertical line at 3.12\". In SE Isometric the ellipse is hidden under the overhang, which is normal."},
+  ["T","-VIEW","Asks for an option"],["T","FRONT","Straight-on front view"]],
+  check:"Matches the second picture: a circle and an ellipse at the lower left, <b>both white inside</b>, a line at 0.62\" and a vertical line at 3.12\"."},
  {t:"Save and make two PDFs",r:[
   ["T","QSAVE","Saves Lab 5b.dwg."],
-  ["Do","In the <b>PDF &amp; turn in</b> tab, make the SE Isometric PDF","Name it <b>Lab 5b SE</b>."],
-  ["Do","Make the second PDF with the <b>Front</b> view","Name it <b>Lab 5b Front</b>. It must show the ellipse at the lower left."]]}
+  ["Do","While still in Front view, make a PDF (see the <b>PDF &amp; turn in</b> tab)","Name it <b>Lab 5b Front</b>."],
+  ["T","-VIEW","Asks for an option"],["T","SEISO","Back to SE Isometric"],
+  ["T","UCS","Asks for the origin"],["T","W","UCS back to World"],
+  ["Do","Make the second PDF in SE Isometric","Name it <b>Lab 5b SE</b>."]]}
 ]},
 
 {id:"c",label:"Lab 5c",intro:{h:"Lab 5c – Problem 2",dl:[["File","lab5c.dwg"],["Units","Millimeters (Metric), 1 grid square = 10 mm"],["Turn in","1 PDF (SE Isometric) + the .dwg"]],pics:[["c","Finished Lab 5c, SE Isometric"]],
