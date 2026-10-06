@@ -298,8 +298,9 @@ const TABS=[
 ]},
 
 {id:"c",label:"Lab 5c",intro:{h:"Lab 5c – Problem 2",dl:[["File","lab5c.dwg"],["Units","Millimeters (Metric), 1 grid square = 10 mm"],["Turn in","1 PDF (SE Isometric) + the .dwg"]],pics:[["c","Finished Lab 5c, SE Isometric"]],
-  fix:"<b>The slope starts at x = 15 mm</b>, so the top flat is 10 mm long. The reference file started it at 10 mm."},steps:[
+  fix:"<b>The slope starts at x = 15 mm</b>, so the highest flat on top is 10 mm long. The reference file started it at 10 mm. Everything else in the reference matches."},steps:[
  {t:"Put the drawing plane on the front face",r:[
+  ["T","UCS","Asks for the origin or an option"],["T","W","Starts from World"],
   ["T","UCS","Asks for the origin or an option"],["T","X","Asks for the rotation angle"],["T","90","Y now points up."]]},
  {t:"Draw the front outline",r:[
   ["T","PLINE","Asks for the start point"],
@@ -311,7 +312,7 @@ const TABS=[
   ["T","-50","The block goes back 50 mm."],["T","ZOOM","Asks for an option"],["T","E","Fills the screen."]]},
  {t:"Turn the drawing plane to the right side",r:[
   ["T","UCS","Asks for the origin or an option"],["T","Y","Asks for the rotation angle"],["T","90","X now runs front to back."]],
-  warn:"Do this right after the last step. Do <b>not</b> go back to World first."},
+  warn:"Do this right after the last step. Do <b>not</b> type UCS W first."},
  {t:"Draw the side outline",r:[
   ["T","PLINE","Asks for the start point"],
   ["T","0,0","Asks for the next point"],["T","50,0","Bottom"],["T","50,20","Back edge, 20 mm tall"],
@@ -319,16 +320,21 @@ const TABS=[
  {t:"Make it 50 mm wide",r:[
   ["T","EXTRUDE","Asks for objects"],["T","L","Picks the outline"],["K","Enter","Asks for the height"],
   ["T","50","A second block crosses the first one."]]},
- {t:"Keep only the overlap",r:[
+ {t:"Back to World, and check both blocks",g:"If either block went the wrong way, the next step would delete everything, so check first.",r:[
   ["T","UCS","Asks for the origin"],["T","W","UCS back to World"],
-  ["T","INTERSECT","Asks: <i>Select objects</i>"],["T","ALL","Selects both blocks"],
-  ["K","Enter","Only the shared shape is left."]]},
+  ["T","MASSPROP","Asks: <i>Select objects</i>"],["T","ALL","Says <i>2 found</i>"],["K","Enter","Lists both blocks, one after the other"]],
+  check:"One block has Volume <b>63750</b>, the other <b>75000</b>. <b>Every</b> Bounding box line reads <b>0.0000 -- 50.0000</b> for X and Y. Press <kbd>Enter</kbd> to close.",
+  warn:"If the <b>63750</b> block shows Y <b>-50 -- 0</b>: type <code>MOVE</code>, <code>ALL</code>, <code>REMOVE</code>, <code>L</code>, Enter, <code>0,0,0</code>, <code>0,50,0</code>. If the <b>75000</b> block shows X <b>-50 -- 0</b>: type <code>MOVE</code>, <code>L</code>, Enter, <code>0,0,0</code>, <code>50,0,0</code>. Then check again."},
+ {t:"Keep only the overlap",r:[
+  ["T","INTERSECT","Asks: <i>Select objects</i>"],["T","ALL","Says <i>2 found</i>"],
+  ["K","Enter","Only the shared shape is left."]],
+  check:"Optional: <code>MASSPROP</code>, <code>ALL</code>, Enter. Volume ≈ <b>52319</b>."},
  {t:"Cut the front-right notch",g:"31.67 is where the slope crosses 20 mm. The handout says this line can be approximate.",r:[
-  ["T","BOX","Asks for the first corner"],["T","31.67,0,0","Asks for the other corner"],["T","@18.33,30,40","A box covers the front right."],...sub()]},
+  ["T","BOX","Asks for the first corner"],["T","31.67,0,0","Asks for the other corner"],["T","@18.33,30,40","A box covers the front right."],...sub()],
+  check:"Volume ≈ <b>46307</b>. This is the finished part."},
  {t:"Check the finished part",r:[
-  ["T","VSCURRENT","Asks for a style"],["T","R","Realistic"],
-  ["T","MASSPROP","Asks for objects"],["Do","Click the part","Highlights"],["K","Enter","Shows the numbers"],["K","Enter","Closes the list"]],
-  check:"<b>Volume</b> about <b>46,300</b> (mm³), and the part matches the picture at the top of this tab."},
+  ["T","VSCURRENT","Asks for a style"],["T","R","Realistic"]],
+  check:"The part matches the picture at the top of this tab."},
  {t:"Save and make the PDF",r:[
   ["T","QSAVE","Saves lab5c.dwg."],
   ["Do","In the <b>PDF &amp; turn in</b> tab, make the SE Isometric PDF","Name it <b>lab5c</b>."]]}
