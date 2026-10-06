@@ -322,9 +322,9 @@ const TABS=[
   ["T","50","A second block crosses the first one."]]},
  {t:"Back to World, and check both blocks",g:"If either block went the wrong way, the next step would delete everything, so check first.",r:[
   ["T","UCS","Asks for the origin"],["T","W","UCS back to World"],
-  ["T","MASSPROP","Asks: <i>Select objects</i>"],["T","ALL","Says <i>2 found</i>"],["K","Enter","Lists both blocks, one after the other"]],
-  check:"One block has Volume <b>63750</b>, the other <b>75000</b>. <b>Every</b> Bounding box line reads <b>0.0000 -- 50.0000</b> for X and Y. Press <kbd>Enter</kbd> to close.",
-  warn:"If the <b>63750</b> block shows Y <b>-50 -- 0</b>: type <code>MOVE</code>, <code>ALL</code>, <code>REMOVE</code>, <code>L</code>, Enter, <code>0,0,0</code>, <code>0,50,0</code>. If the <b>75000</b> block shows X <b>-50 -- 0</b>: type <code>MOVE</code>, <code>L</code>, Enter, <code>0,0,0</code>, <code>50,0,0</code>. Then check again."},
+  ["T","MASSPROP","Asks: <i>Select objects</i>"],["T","ALL","Says <i>2 found</i>"],["K","Enter","Shows one combined list for both blocks"]],
+  check:"MASSPROP adds both blocks together: Volume <b>138750</b> (63750 + 75000). Bounding box reads X <b>0 -- 50</b>, Y <b>0 -- 50</b>, Z <b>0 -- 40</b>. The two blocks overlap almost completely, so they look like one shape. Press <kbd>Enter</kbd> to close.",
+  warn:"If the Bounding box shows <b>-50</b> anywhere, one block went the wrong way. Send a screenshot before going on, because the next step would delete everything."},
  {t:"Keep only the overlap",r:[
   ["T","INTERSECT","Asks: <i>Select objects</i>"],["T","ALL","Says <i>2 found</i>"],
   ["K","Enter","Only the shared shape is left."]],
