@@ -187,4 +187,5 @@ Any slanted line is the long side of an imaginary right triangle. **tan(angle) =
 - **Miter starts at (3.25, 1.646) instead of (4.25, 2.646)?** It's still correct (same 45° line). Trimming the extra piece is optional.
 - **Why no hidden line for the rail's far side in the side view?** Its hidden edges land exactly on the solid 0 and 0.19 lines. Visible beats hidden.
 - **Why 0.81?** Rail 0.19 + base 0.62.
+- **Pocket "rectangle" in the front view?** Corners (2.25,.62), (3.25,.62), (3.25,.81), (2.25,.81). X: 3.25 − 1.00 = 2.25 to 3.25. Height: 0.81 − 0.19 = 0.62 to 0.81. The outline already covers the top (.81) and right (3.25) sides, so draw only `2.25,.62 → 3.25,.62` and `2.25,.62 → 2.25,.81`. The outline goes up to .81 at X = 3.25, not .62, because the back part of the base behind the pocket is full height.
 - **Why tan 40° when the top view isn't a triangle?** The 40° wall plus a vertical and a horizontal leg make an imaginary right triangle. tan 40° = sideways ÷ back.
