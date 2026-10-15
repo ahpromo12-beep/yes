@@ -2,7 +2,7 @@
 
 **d = 1.646** (SJSU ID 018833646 → last 3 digits 646) · Save as **Exam1-1.dwg**
 
-Pictures in this folder: `features.png` (the 6 parts), `answer_key_d1646.png` (finished drawing), `construction_lines.png` (the 9 construction lines), `slant_points.png` (how 1.559 and 1.343 are found).
+Pictures in this folder: `features.png` (the 6 parts), `answer_key_d1646.png` (finished drawing), `construction_lines.png` (the 9 construction lines), `slant_points.png` (how 1.559 and 1.343 are found), `drop_steps.png` (3-step picture: 0.441 right → 0.526 back → 0.303 down).
 
 ---
 
