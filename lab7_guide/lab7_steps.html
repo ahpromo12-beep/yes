@@ -274,10 +274,10 @@ const TABS=[
   ["T","C","Closes back to point 1. AutoCAD works out line 4-1."],
   ["T","ZOOM",""],["T","E","Fills the screen."]],
   check:"The shape matches the 1a picture above."},
- {t:"Label line 1-2 with distance and bearing",g:"Text height 1'-8\". The R option turns the text to follow the line; click the endpoints in reading order.",r:[
+ {t:"Label line 1-2 with distance and bearing",g:"Text height 8\". The R option turns the text to follow the line; click the endpoints in reading order.",r:[
   ["T","MTEXT","Asks for the first corner"],
   ["Do","Click just <b>below the middle</b> of line 1-2","Asks for the opposite corner"],
-  ["T","H",""],["T","1'8\"","Text height"],
+  ["T","H",""],["T","8\"","Text height (prints at 1/8\")"],
   ["T","R","Asks for the rotation angle"],
   ["Do","Click <b>point 2</b>, then <b>point 1</b> (endpoint snaps)","The text will follow the line."],
   ["Do","Click a spot about the length of the line away, to set the box size","A text box opens."],
@@ -291,7 +291,7 @@ const TABS=[
  {t:"Point numbers 1–4",r:[
   ["T","TEXT","Asks for the start point"],
   ["Do","Click just outside <b>point 1</b>","Asks for height"],
-  ["T","1'8\"","Asks for rotation"],
+  ["T","8\"","Asks for rotation"],
   ["K","Enter","Keeps it level"],
   ["Do","Type <b>1</b>, press <kbd>Enter</kbd> twice","Number placed."],
   ["Do","Repeat for <b>2</b>, <b>3</b>, <b>4</b>","All points numbered."]]}
