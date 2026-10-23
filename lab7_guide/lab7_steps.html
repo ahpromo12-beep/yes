@@ -274,19 +274,19 @@ const TABS=[
   ["T","C","Closes back to point 1. AutoCAD works out line 4-1."],
   ["T","ZOOM",""],["T","E","Fills the screen."]],
   check:"The shape matches the 1a picture above."},
- {t:"Label line 1-2 with distance and bearing",g:"Text height 8\". The R option turns the text to follow the line; click the endpoints in reading order.",r:[
+ {t:"Label line 1-2 with distance and bearing",g:"Text height 8\". The R option turns the text to follow the line. Type the rotation as a bearing in reading direction.",r:[
   ["T","MTEXT","Asks for the first corner"],
   ["Do","Click just <b>below the middle</b> of line 1-2","Asks for the opposite corner"],
   ["T","H",""],["T","8\"","Text height (prints at 1/8\")"],
   ["T","R","Asks for the rotation angle"],
-  ["Do","Click <b>point 2</b>, then <b>point 1</b> (endpoint snaps)","The text will follow the line."],
-  ["Do","Click a spot about the length of the line away, to set the box size","A text box opens."],
+  ["T","N50d25'55\"E","Type the angle as a bearing (point 2 toward point 1). Don't click: one click here sets the angle from your first corner."],
+  ["Do","Click farther along the line and a little below it, to set the box size","A tilted text box opens."],
   ...FIELD_LEN],
   check:"Shows <b>25'-5\"  S 50d25'55\" W</b> along the line."},
  {t:"Label lines 2-3, 3-4 and 4-1",g:"Same as the last step, for each line. Only the endpoint order changes.",r:[
-  ["Do","<b>Line 2-3:</b> at the R prompt click <b>point 2</b>, then <b>point 3</b>","Shows 12'-6\"  N 10d5'24\" E"],
-  ["Do","<b>Line 3-4:</b> click <b>point 3</b>, then <b>point 4</b>","Shows 30'  N 5d W"],
-  ["Do","<b>Line 4-1:</b> click <b>point 4</b>, then <b>point 1</b>","Shows 32'-10\"  S 37d35'26\" E"]],
+  ["Do","<b>Line 2-3:</b> at the R prompt type <code>N10d05'24\"E</code>","Shows 12'-6\"  N 10d5'24\" E"],
+  ["Do","<b>Line 3-4:</b> at the R prompt type <code>N5dW</code>","Shows 30'  N 5d W"],
+  ["Do","<b>Line 4-1:</b> at the R prompt type <code>S37d35'26\"E</code>","Shows 32'-10\"  S 37d35'26\" E"]],
   check:"4-1 should read <b>32'-10\" S 37d35'26\" E</b>. If yours differs, one of the first 3 lines was typed wrong."},
  {t:"Point numbers 1–4",r:[
   ["T","TEXT","Asks for the start point"],
