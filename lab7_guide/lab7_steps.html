@@ -288,13 +288,13 @@ const TABS=[
   ["Do","<b>Line 3-4:</b> at the R prompt type <code>N5dW</code>","Shows 30'  N 5d W"],
   ["Do","<b>Line 4-1:</b> at the R prompt type <code>S37d35'26\"E</code>","Shows 32'-10\"  S 37d35'26\" E"]],
   check:"4-1 should read <b>32'-10\" S 37d35'26\" E</b>. If yours differs, one of the first 3 lines was typed wrong."},
- {t:"Point numbers 1–4",r:[
-  ["T","TEXT","Asks for the start point"],
-  ["Do","Click just outside <b>point 1</b>","Asks for height"],
-  ["T","8\"","Asks for rotation"],
-  ["K","Enter","Keeps it level"],
-  ["Do","Type <b>1</b>, press <kbd>Enter</kbd> twice","Number placed."],
-  ["Do","Repeat for <b>2</b>, <b>3</b>, <b>4</b>","All points numbered."]]}
+ {t:"Point numbers 1–4",g:"Use MTEXT, not TEXT: your Roman style has a fixed 0.125\" height, so TEXT would skip the height question and make the numbers tiny.",r:[
+  ["T","MTEXT","Asks for the first corner"],
+  ["Do","Click just <b>outside</b> point 1 (not on the line)","Asks for the opposite corner"],
+  ["T","H",""],["T","1'","Height: a bit bigger than the labels"],
+  ["Do","Click a little down and to the right","An empty text box opens."],
+  ["Do","Type <b>1</b>, then click outside the box","The number is placed."],
+  ["Do","Repeat for <b>2</b>, <b>3</b>, <b>4</b> at their corners","All points numbered."]]}
 ]},
 
 {id:"c",label:"C · 1b site plan",intro:{h:"Exercise 1b – site plan",dl:[["Handout","Exercise steps 35–40"],["Where","Model tab"],["Viewport scale","1/32\" = 1'-0\" (bottom)"]],pics:[["b","What 1b should look like"]],
