@@ -311,11 +311,11 @@ const TABS=[
   ["T","RECTANG","Asks for the first corner"],
   ["T","600',50'","First corner: 100' right and 50' up from the property's lower-left corner (500',0). No clicking."],
   ["T","@300',100'","Opposite corner. The building is centered."]]},
- {t:"Four grass circles (R 20', 40' in from each side)",r:[
-  ["T","CIRCLE",""],["T","FRO",""],["Do","Click the <b>lower-left</b> corner",""],["T","@40',40'",""],["T","20'","Circle 1"],
-  ["T","CIRCLE",""],["T","FRO",""],["Do","Click the <b>lower-right</b> corner",""],["T","@-40',40'",""],["T","20'","Circle 2"],
-  ["T","CIRCLE",""],["T","FRO",""],["Do","Click the <b>upper-left</b> corner",""],["T","@40',-40'",""],["T","20'","Circle 3"],
-  ["T","CIRCLE",""],["T","FRO",""],["Do","Click the <b>upper-right</b> corner",""],["T","@-40',-40'",""],["T","20'","Circle 4"]]},
+ {t:"Four grass circles (R 20', 40' in from each side)",g:"Type each center; no clicking needed.",r:[
+  ["T","CIRCLE","Asks for the center"],["T","540',40'","Lower-left circle center"],["T","20'","Radius. Circle 1."],
+  ["T","CIRCLE",""],["T","960',40'","Lower-right"],["T","20'","Circle 2"],
+  ["T","CIRCLE",""],["T","540',160'","Upper-left"],["T","20'","Circle 3"],
+  ["T","CIRCLE",""],["T","960',160'","Upper-right"],["T","20'","Circle 4"]]},
  {t:"Grass hatch",g:"Like last lab's sectioning. Erasing the circles afterward is optional (the handout allows it).",r:[
   ["T","-HATCH",""],["T","P",""],["T","GRASS","Pattern name"],["T","60","Scale (change later if too dense or sparse)"],["T","0","Angle"],
   ["Do","Click inside each of the <b>4 circles</b>",""],
