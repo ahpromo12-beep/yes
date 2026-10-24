@@ -323,18 +323,19 @@ const TABS=[
   check:"Too dense or too sparse? Click a hatch, press <kbd>Ctrl</kbd>+<kbd>1</kbd>, and change <b>Scale</b>."},
  {t:"AREA label (automatic field)",r:[
   ["T","MTEXT","Asks for the first corner"],
-  ["Do","Click <b>below the property line</b>, near the middle",""],
+  ["T","660',-15'","First corner, typed: 15' below the bottom property line, left of center. No clicking."],
   ["T","H",""],["T","10'","Height that prints well at 1/32\" scale"],
-  ["Do","Click to the right to set the box size","A text box opens."],
+  ["T","R",""],["T","0","Keeps the text level"],
+  ["T","@200',-20'","Opposite corner, typed. A text box opens."],
   ["Do","Type <b>AREA = </b> (with a space after =)",""],
   ["Do","Right-click, <b>Insert Field…</b>, <b>Object</b>, click the pick button, click the <b>property line</b>",""],
   ["Do","<b>Property:</b> Area. <b>Format:</b> Engineering. <b>Precision:</b> 0. Click <b>OK</b>",""],
   ["Do","Click outside the text box","Done."]],
   check:"Reads <b>AREA = 100000 SQ. FT.</b>"},
- {t:"North arrow",r:[
-  ["T","LINE",""],["T","FRO",""],["Do","Click the property's <b>lower-right corner</b>",""],["T","@60',50'","Arrow tail"],["T","@0,100'","Arrow tip"],["T","@-12',-30'","Left barb"],["K","Enter",""],
-  ["T","LINE",""],["T","FRO",""],["Do","Click the <b>lower-right corner</b> again",""],["T","@60',150'","Arrow tip"],["T","@12',-30'","Right barb"],["K","Enter",""],
-  ["T","MTEXT",""],["T","FRO",""],["Do","Click the <b>lower-right corner</b> again",""],["T","@50',185'","Top-left of the N"],["T","H",""],["T","15'",""],["T","@20',-20'","Opposite corner"],
+ {t:"North arrow",g:"Typed points, no clicking. It sits just right of the property's lower-right corner (1000',0).",r:[
+  ["T","LINE",""],["T","1060',50'","Arrow tail"],["T","1060',150'","Arrow tip"],["T","@-12',-30'","Left barb"],["K","Enter",""],
+  ["T","LINE",""],["T","1060',150'","Arrow tip again"],["T","@12',-30'","Right barb"],["K","Enter",""],
+  ["T","MTEXT",""],["T","1052',185'","Top-left of the N"],["T","H",""],["T","15'",""],["T","R",""],["T","0",""],["T","@20',-20'","Opposite corner"],
   ["Do","Type <b>N</b>, click outside","North arrow done."]]}
 ]},
 
